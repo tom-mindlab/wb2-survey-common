@@ -1,5 +1,4 @@
-"use strict";
-class SurveyHTMLElement {
+export class SurveyBase {
     get root_element() {
         return this._root_element;
     }

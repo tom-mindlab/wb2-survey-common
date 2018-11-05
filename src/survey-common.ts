@@ -2,7 +2,7 @@ interface IUserInputPredicate {
     (user_input: any): boolean;
 }
 
-class SurveyHTMLElement {
+export class SurveyBase {
 
     public name: string;
     public validation_predicate: IUserInputPredicate;
