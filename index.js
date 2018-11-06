@@ -1,1 +1,1 @@
-export { SurveyBase } from './js/survey-common';
+export { SurveyBase } from "./js/survey-common";
