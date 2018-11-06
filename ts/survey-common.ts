@@ -55,10 +55,10 @@ export class SurveyBase {
             return temp_container.firstChild as HTMLElement;
         })();
         this._title_element = this._root_element.querySelector(`.wb2-survey-title`) as HTMLElement;
-        this._content_element = this._root_element.querySelector(`wb2-survey-content`) as HTMLElement;
-        this._control_bar_element = this._root_element.querySelector(`wb2-survey-control-bar`) as HTMLElement;
+        this._content_element = this._root_element.querySelector(`.wb2-survey-content`) as HTMLElement;
+        this._control_bar_element = this._root_element.querySelector(`.wb2-survey-control-bar`) as HTMLElement;
 
-        this._continue_button_element = this._control_bar_element.querySelector(`wb2-survey-continue`) as HTMLElement;
+        this._continue_button_element = this._control_bar_element.querySelector(`.wb2-survey-continue`) as HTMLElement;
 
         this.root_element.addEventListener(validation_trigger_event_type, (e) => {
             this.last_event = e;
