@@ -56,7 +56,7 @@ export class SurveyBase {
         })();
         this._title_element = this._root_element.querySelector(`.wb2-survey-title`) as HTMLElement;
         this._content_element = this.root_element.querySelector(`wb2-survey-content`) as HTMLElement;
-        this._control_bar_element = this.root_element.querySelector(`wb2-survey-continue`) as HTMLElement;
+        this._control_bar_element = this.root_element.querySelector(`wb2-survey-control-bar`) as HTMLElement;
 
         this._continue_button_element = this._control_bar_element.querySelector(`wb2-survey-continue`) as HTMLElement;
 
