@@ -1,0 +1,1 @@
+export { IUserInputPredicate, SurveyBase } from "survey-common";
