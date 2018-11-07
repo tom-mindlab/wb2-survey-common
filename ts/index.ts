@@ -1,1 +1,1 @@
-export { SurveyBase } from "./survey-common";
+export { IUserInputPredicate, SurveyBase } from "./survey-common";
