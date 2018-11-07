@@ -1,4 +1,4 @@
-interface IUserInputPredicate {
+export interface IUserInputPredicate {
     (user_input: any): boolean;
 }
 
@@ -10,9 +10,10 @@ export class SurveyBase {
 
     public last_event: Event | null;
 
+    protected _content_element: HTMLElement;
+
     private _root_element: HTMLElement;
     private _title_element: HTMLElement;
-    private _content_element: HTMLElement;
     private _control_bar_element: HTMLElement;
     private _continue_button_element: HTMLElement;
 
@@ -60,7 +61,7 @@ export class SurveyBase {
 
         this._continue_button_element = this._control_bar_element.querySelector(`.wb2-survey-continue`) as HTMLElement;
 
-        this.root_element.addEventListener(validation_trigger_event_type, (e) => {
+        this.root_element.addEventListener(this.validation_trigger_event_type, (e) => {
             this.last_event = e;
 
         });

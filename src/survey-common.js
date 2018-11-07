@@ -35,7 +35,7 @@ export class SurveyBase {
         this._content_element = this._root_element.querySelector(`.wb2-survey-content`);
         this._control_bar_element = this._root_element.querySelector(`.wb2-survey-control-bar`);
         this._continue_button_element = this._control_bar_element.querySelector(`.wb2-survey-continue`);
-        this.root_element.addEventListener(validation_trigger_event_type, (e) => {
+        this.root_element.addEventListener(this.validation_trigger_event_type, (e) => {
             this.last_event = e;
         });
     }
