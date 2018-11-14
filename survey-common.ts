@@ -76,18 +76,18 @@ export class SurveyBase {
     public validInput() {
         return new Promise((res) => {
             this.continue_button_element.addEventListener(`click`, () => {
-                if (this.validateInput(this.last_event as Event)) {
+                if (this.validateInput()) {
                     res(this.last_event as Event);
                 }
             });
         });
     }
 
-    private validateInput(user_input: any, override_predicate?: IUserInputPredicate) {
+    private validateInput(override_predicate?: IUserInputPredicate) {
         if (typeof override_predicate === `undefined`) {
-            return override_predicate!(user_input);
+            return override_predicate!();
         } else {
-            return this.validation_predicate(user_input);
+            return this.validation_predicate();
         }
     }
 }
