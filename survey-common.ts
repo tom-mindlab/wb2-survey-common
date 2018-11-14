@@ -1,5 +1,5 @@
 export interface IUserInputPredicate {
-    (user_input: any): boolean;
+    (): boolean;
 }
 
 export class SurveyBase {
@@ -16,29 +16,35 @@ export class SurveyBase {
     private _title_element: HTMLElement;
     private _control_bar_element: HTMLElement;
     private _continue_button_element: HTMLElement;
+    private _raw_config: object;
 
-    public get root_element(): HTMLElement {
+    public get root_element() {
         return this._root_element;
     }
 
-    public get title_element(): HTMLElement {
+    public get title_element() {
         return this._title_element;
     }
 
-    public get content_element(): HTMLElement {
+    public get content_element() {
         return this._content_element;
     }
 
-    public get control_bar_element(): HTMLElement {
+    public get control_bar_element() {
         return this._control_bar_element;
     }
 
-    public get continue_button_element(): HTMLElement {
+    public get continue_button_element() {
         return this._continue_button_element;
     }
 
-    constructor(name: string, validation_predicate: IUserInputPredicate, validation_trigger_event_type: string = `input`) {
+    public get config() {
+        return this._raw_config;
+    }
+
+    constructor(name: string, config: object, validation_predicate: IUserInputPredicate = () => true, validation_trigger_event_type: string = `input`) {
         this.name = name;
+        this._raw_config = config;
         this.validation_predicate = validation_predicate;
         this.validation_trigger_event_type = validation_trigger_event_type;
         this.last_event = null;
@@ -67,7 +73,17 @@ export class SurveyBase {
         });
     }
 
-    public validateInput(user_input: any, override_predicate?: IUserInputPredicate) {
+    public validInput() {
+        return new Promise((res) => {
+            this.continue_button_element.addEventListener(`click`, () => {
+                if (this.validateInput(this.last_event as Event)) {
+                    res(this.last_event as Event);
+                }
+            });
+        });
+    }
+
+    private validateInput(user_input: any, override_predicate?: IUserInputPredicate) {
         if (typeof override_predicate === `undefined`) {
             return override_predicate!(user_input);
         } else {

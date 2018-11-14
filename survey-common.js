@@ -14,8 +14,12 @@ export class SurveyBase {
     get continue_button_element() {
         return this._continue_button_element;
     }
-    constructor(name, validation_predicate, validation_trigger_event_type = `input`) {
+    get config() {
+        return this._raw_config;
+    }
+    constructor(name, config, validation_predicate = () => true, validation_trigger_event_type = `input`) {
         this.name = name;
+        this._raw_config = config;
         this.validation_predicate = validation_predicate;
         this.validation_trigger_event_type = validation_trigger_event_type;
         this.last_event = null;
@@ -37,6 +41,15 @@ export class SurveyBase {
         this._continue_button_element = this._control_bar_element.querySelector(`.wb2-survey-continue`);
         this.root_element.addEventListener(this.validation_trigger_event_type, (e) => {
             this.last_event = e;
+        });
+    }
+    validInput() {
+        return new Promise((res) => {
+            this.continue_button_element.addEventListener(`click`, () => {
+                if (this.validateInput(this.last_event)) {
+                    res(this.last_event);
+                }
+            });
         });
     }
     validateInput(user_input, override_predicate) {
