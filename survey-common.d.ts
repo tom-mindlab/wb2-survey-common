@@ -17,7 +17,7 @@ export declare class SurveyBase {
     readonly content_element: HTMLElement;
     readonly control_bar_element: HTMLElement;
     readonly continue_button_element: HTMLElement;
-    readonly config: object;
+    readonly config: any;
     constructor(name: string, config: object, validation_predicate?: IUserInputPredicate, validation_trigger_event_type?: string);
     validInput(): Promise<{}>;
     private validateInput;

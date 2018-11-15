@@ -16,7 +16,7 @@ export class SurveyBase {
     private _title_element: HTMLElement;
     private _control_bar_element: HTMLElement;
     private _continue_button_element: HTMLElement;
-    private _raw_config: object;
+    private _raw_config: any;
 
     public get root_element() {
         return this._root_element;
