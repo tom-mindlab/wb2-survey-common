@@ -2,7 +2,7 @@ export interface IUserInputPredicate {
     (): boolean;
 }
 
-export class SurveyBase {
+export abstract class SurveyBase {
 
     public name: string;
     public validation_predicate: IUserInputPredicate;
@@ -11,12 +11,12 @@ export class SurveyBase {
     public last_event: Event | null;
 
     protected _content_element: HTMLElement;
+    protected _raw_config: any;
 
     private _root_element: HTMLElement;
     private _title_element: HTMLElement;
     private _control_bar_element: HTMLElement;
     private _continue_button_element: HTMLElement;
-    private _raw_config: any;
 
     public get root_element() {
         return this._root_element;
@@ -38,11 +38,9 @@ export class SurveyBase {
         return this._continue_button_element;
     }
 
-    public get config() {
-        return this._raw_config;
-    }
+    public abstract get config(): any;
 
-    constructor(name: string, config: object, validation_predicate: IUserInputPredicate = () => true, validation_trigger_event_type: string = `input`) {
+    constructor(name: string, config: any, validation_predicate: IUserInputPredicate = () => true, validation_trigger_event_type: string = `input`) {
         this.name = name;
         this._raw_config = config;
         this.validation_predicate = validation_predicate;
