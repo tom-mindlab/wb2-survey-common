@@ -1,5 +1,5 @@
 import { SurveyBase } from "./survey_base";
-import * as SurveyUtils from "./survey_utils";
+import * as SurveyUtils from "../utils/survey_utils";
 export class SurveyTextArea extends SurveyBase {
     get textarea_element() {
         return this._textarea_element;
@@ -8,7 +8,7 @@ export class SurveyTextArea extends SurveyBase {
         return this._raw_config;
     }
     get value() {
-        return this._textarea_element.value;
+        return this.textarea_element.value;
     }
     constructor(name, config, override_predicate, validation_trigger_event_type = `input`) {
         super(name, config, (() => {

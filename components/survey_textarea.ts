@@ -1,6 +1,6 @@
 import { IUserInputPredicate, SurveyBase } from "./survey_base";
 
-import * as SurveyUtils from "./survey_utils";
+import * as SurveyUtils from "../utils/survey_utils";
 
 interface IDisallowedContentConfig {
     whitespace: boolean;
@@ -36,7 +36,7 @@ export class SurveyTextArea extends SurveyBase {
     }
 
     get value() {
-        return this._textarea_element.value;
+        return this.textarea_element.value;
     }
 
     constructor(name: string, config: ISurveyTextAreaConfig, override_predicate?: IUserInputPredicate, validation_trigger_event_type: string = `input`) {

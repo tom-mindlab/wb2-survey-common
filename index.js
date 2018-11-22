@@ -1,3 +1,3 @@
-export { SurveyBase } from "./survey_base";
-export { SurveyTextArea } from "./survey_textarea";
+export { SurveyBase } from "./components/survey_base";
+export { SurveyTextArea } from "./components/survey_textarea";
 //# sourceMappingURL=index.js.map
