@@ -18,7 +18,7 @@ interface IConditionsConfig {
     enforcement: string;
 }
 
-interface ISurveyTextAreaConfig {
+export interface ISurveyTextAreaConfig {
     language: string;
     label: string;
     conditions: IConditionsConfig;
