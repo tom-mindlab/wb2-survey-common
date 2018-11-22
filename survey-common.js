@@ -40,10 +40,10 @@ export class SurveyBase {
             this.last_event = e;
         });
     }
-    validInput(user_input) {
+    validInput() {
         return new Promise((res) => {
             this.continue_button_element.addEventListener(`click`, () => {
-                if (this.validateInput(user_input)) {
+                if (this.validateInput(this.value)) {
                     res(this.last_event);
                 }
             });

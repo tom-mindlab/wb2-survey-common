@@ -20,7 +20,7 @@ export declare abstract class SurveyBase {
     abstract readonly config: any;
     abstract readonly value: any;
     constructor(name: string, config: any, validation_predicate?: IUserInputPredicate, validation_trigger_event_type?: string);
-    validInput(user_input: any): Promise<{}>;
+    validInput(): Promise<{}>;
     private validateInput;
 }
 //# sourceMappingURL=survey-common.d.ts.map

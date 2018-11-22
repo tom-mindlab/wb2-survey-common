@@ -72,10 +72,10 @@ export abstract class SurveyBase {
         });
     }
 
-    public validInput(user_input: any) {
+    public validInput() {
         return new Promise((res) => {
             this.continue_button_element.addEventListener(`click`, () => {
-                if (this.validateInput(user_input)) {
+                if (this.validateInput(this.value)) {
                     res(this.last_event as Event);
                 }
             });
