@@ -1,5 +1,5 @@
 export interface IUserInputPredicate {
-    (): boolean;
+    (user_input: any): boolean;
 }
 
 export abstract class SurveyBase {
@@ -71,21 +71,21 @@ export abstract class SurveyBase {
         });
     }
 
-    public validInput() {
+    public validInput(user_input: any) {
         return new Promise((res) => {
             this.continue_button_element.addEventListener(`click`, () => {
-                if (this.validateInput()) {
+                if (this.validateInput(user_input)) {
                     res(this.last_event as Event);
                 }
             });
         });
     }
 
-    private validateInput(override_predicate?: IUserInputPredicate) {
+    private validateInput(user_input: any, override_predicate?: IUserInputPredicate) {
         if (typeof override_predicate !== `undefined`) {
-            return override_predicate!();
+            return override_predicate!(user_input);
         } else {
-            return this.validation_predicate();
+            return this.validation_predicate(user_input);
         }
     }
 }

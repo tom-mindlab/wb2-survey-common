@@ -40,21 +40,21 @@ export class SurveyBase {
             this.last_event = e;
         });
     }
-    validInput() {
+    validInput(user_input) {
         return new Promise((res) => {
             this.continue_button_element.addEventListener(`click`, () => {
-                if (this.validateInput()) {
+                if (this.validateInput(user_input)) {
                     res(this.last_event);
                 }
             });
         });
     }
-    validateInput(override_predicate) {
+    validateInput(user_input, override_predicate) {
         if (typeof override_predicate !== `undefined`) {
-            return override_predicate();
+            return override_predicate(user_input);
         }
         else {
-            return this.validation_predicate();
+            return this.validation_predicate(user_input);
         }
     }
 }

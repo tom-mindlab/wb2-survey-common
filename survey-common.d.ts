@@ -1,5 +1,5 @@
 export interface IUserInputPredicate {
-    (): boolean;
+    (user_input: any): boolean;
 }
 export declare abstract class SurveyBase {
     name: string;
@@ -19,7 +19,7 @@ export declare abstract class SurveyBase {
     readonly continue_button_element: HTMLElement;
     abstract readonly config: any;
     constructor(name: string, config: any, validation_predicate?: IUserInputPredicate, validation_trigger_event_type?: string);
-    validInput(): Promise<{}>;
+    validInput(user_input: any): Promise<{}>;
     private validateInput;
 }
 //# sourceMappingURL=survey-common.d.ts.map
