@@ -23,4 +23,4 @@ export declare abstract class SurveyBase {
     validInput(): Promise<{}>;
     private validateInput;
 }
-//# sourceMappingURL=survey-common.d.ts.map
+//# sourceMappingURL=survey_base.d.ts.map

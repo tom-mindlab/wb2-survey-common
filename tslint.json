@@ -8,7 +8,9 @@
         "max-line-length": false,
         "variable-name": false,
         "eofline": false,
-        "callable-types": false
+        "callable-types": false,
+        "object-literal-sort-keys": false,
+        "trailing-comma": false
     },
     "rulesDirectory": []
 }
