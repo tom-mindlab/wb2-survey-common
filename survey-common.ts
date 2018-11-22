@@ -39,6 +39,7 @@ export abstract class SurveyBase {
     }
 
     public abstract get config(): any;
+    public abstract get value(): any;
 
     constructor(name: string, config: any, validation_predicate: IUserInputPredicate = () => true, validation_trigger_event_type: string = `input`) {
         this.name = name;

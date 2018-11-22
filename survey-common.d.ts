@@ -18,6 +18,7 @@ export declare abstract class SurveyBase {
     readonly control_bar_element: HTMLElement;
     readonly continue_button_element: HTMLElement;
     abstract readonly config: any;
+    abstract readonly value: any;
     constructor(name: string, config: any, validation_predicate?: IUserInputPredicate, validation_trigger_event_type?: string);
     validInput(user_input: any): Promise<{}>;
     private validateInput;
