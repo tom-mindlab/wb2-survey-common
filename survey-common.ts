@@ -82,7 +82,7 @@ export abstract class SurveyBase {
     }
 
     private validateInput(override_predicate?: IUserInputPredicate) {
-        if (typeof override_predicate === `undefined`) {
+        if (typeof override_predicate !== `undefined`) {
             return override_predicate!();
         } else {
             return this.validation_predicate();

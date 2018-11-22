@@ -14,9 +14,6 @@ export class SurveyBase {
     get continue_button_element() {
         return this._continue_button_element;
     }
-    get config() {
-        return this._raw_config;
-    }
     constructor(name, config, validation_predicate = () => true, validation_trigger_event_type = `input`) {
         this.name = name;
         this._raw_config = config;
@@ -53,7 +50,7 @@ export class SurveyBase {
         });
     }
     validateInput(override_predicate) {
-        if (typeof override_predicate === `undefined`) {
+        if (typeof override_predicate !== `undefined`) {
             return override_predicate();
         }
         else {
