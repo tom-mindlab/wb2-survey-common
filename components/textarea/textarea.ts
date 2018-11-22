@@ -1,6 +1,6 @@
-import { IUserInputPredicate, SurveyBase } from "./survey_base";
+import { IUserInputPredicate, SurveyBase } from "../base/survey_base";
 
-import * as SurveyUtils from "../utils/survey_utils";
+import * as SurveyUtils from "../../utils/survey_utils";
 
 interface IDisallowedContentConfig {
     whitespace: boolean;
@@ -18,13 +18,13 @@ interface IConditionsConfig {
     enforcement: string;
 }
 
-export interface ISurveyTextAreaConfig {
+export interface ITextAreaConfig {
     language: string;
     label: string;
     conditions: IConditionsConfig;
 }
 
-export class SurveyTextArea extends SurveyBase {
+export class TextArea extends SurveyBase {
     private _textarea_element: HTMLTextAreaElement;
 
     get textarea_element() {
@@ -32,14 +32,14 @@ export class SurveyTextArea extends SurveyBase {
     }
 
     get config() {
-        return this._raw_config as ISurveyTextAreaConfig;
+        return this._raw_config as ITextAreaConfig;
     }
 
     get value() {
         return this.textarea_element.value;
     }
 
-    constructor(name: string, config: ISurveyTextAreaConfig, override_predicate?: IUserInputPredicate, validation_trigger_event_type: string = `input`) {
+    constructor(name: string, config: ITextAreaConfig, override_predicate?: IUserInputPredicate, validation_trigger_event_type: string = `input`) {
         super(name, config, (() => {
             if (override_predicate) {
                 return override_predicate;

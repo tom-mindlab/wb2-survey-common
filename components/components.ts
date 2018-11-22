@@ -1,0 +1,1 @@
+export { TextArea, ITextAreaConfig } from "./textarea/textarea";

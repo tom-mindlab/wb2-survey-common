@@ -1,6 +1,6 @@
-import { SurveyBase } from "./survey_base";
-import * as SurveyUtils from "../utils/survey_utils";
-export class SurveyTextArea extends SurveyBase {
+import { SurveyBase } from "../base/survey_base";
+import * as SurveyUtils from "../../utils/survey_utils";
+export class TextArea extends SurveyBase {
     get textarea_element() {
         return this._textarea_element;
     }
@@ -32,4 +32,4 @@ export class SurveyTextArea extends SurveyBase {
         this._content_element.appendChild(this._textarea_element);
     }
 }
-//# sourceMappingURL=survey_textarea.js.map
+//# sourceMappingURL=textarea.js.map
