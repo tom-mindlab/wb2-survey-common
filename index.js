@@ -1,2 +1,2 @@
-export * from "components/components";
+export * from "./components/components";
 //# sourceMappingURL=index.js.map
