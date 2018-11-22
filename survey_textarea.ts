@@ -1,5 +1,7 @@
 import { IUserInputPredicate, SurveyBase } from "./survey_base";
 
+import * as SurveyUtils from "./survey_utils";
+
 interface IDisallowedContentConfig {
     whitespace: boolean;
     alphabetic: boolean;
@@ -43,8 +45,8 @@ export class SurveyTextArea extends SurveyBase {
                 return override_predicate;
             } else {
                 return (user_input: any) => {
-                    if (validLength(user_input, this.config.conditions)
-                    && validCharSets(user_input, this.config.conditions)
+                    if (SurveyUtils.validLength(user_input, this.config.conditions)
+                    && SurveyUtils.validCharSets(user_input, this.config.conditions)
                     && user_input.search(new RegExp((this.config).conditions.disallowed_content.custom)) !== -1) {
                         return true;
                     } else {

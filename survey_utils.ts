@@ -1,4 +1,4 @@
-function validLength(user_input: string, conditions: any): boolean {
+export function validLength(user_input: string, conditions: any): boolean {
     if (user_input.length > conditions.max_length || user_input.length < conditions.min_length) {
         return false;
     } else {
@@ -6,7 +6,7 @@ function validLength(user_input: string, conditions: any): boolean {
     }
 }
 
-function validCharSets(user_input: string, conditions: any): boolean {
+export function validCharSets(user_input: string, conditions: any): boolean {
     const regex_premade_filters = new Map(Object.entries({
         alphabetic: () => {
             return /[^\s\d\W]/gimu;

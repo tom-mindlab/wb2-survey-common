@@ -1,4 +1,5 @@
 import { SurveyBase } from "./survey_base";
+import * as SurveyUtils from "./survey_utils";
 export class SurveyTextArea extends SurveyBase {
     get textarea_element() {
         return this._textarea_element;
@@ -16,8 +17,8 @@ export class SurveyTextArea extends SurveyBase {
             }
             else {
                 return (user_input) => {
-                    if (validLength(user_input, this.config.conditions)
-                        && validCharSets(user_input, this.config.conditions)
+                    if (SurveyUtils.validLength(user_input, this.config.conditions)
+                        && SurveyUtils.validCharSets(user_input, this.config.conditions)
                         && user_input.search(new RegExp((this.config).conditions.disallowed_content.custom)) !== -1) {
                         return true;
                     }
